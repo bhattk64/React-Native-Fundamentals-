@@ -1,16 +1,29 @@
-import { StyleSheet, Text, useColorScheme, View } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 import React from 'react'
 
 const App = () => {
-  const theme=  useColorScheme()
-  const isDarkMode=theme==='dark' 
-  const backgroundColor=isDarkMode?'#000':'#fff'
-  const textcolor=isDarkMode?'#fff':'#000'
-
   return (
-    <View style={[styles.container,{backgroundColor:backgroundColor}]}>
-      <Text style={[styles.text,{color:textcolor}]}>App</Text>
-    </View>
+    < ScrollView 
+    contentContainerStyle={{gap:10}}
+    horizontal
+    
+    style={styles.container}>
+      <View style={styles.box1} />
+      <View style={styles.box2} />
+      <View style={styles.box3} />
+      <View style={styles.box1} />
+      <View style={styles.box2} />
+      <View style={styles.box3} />
+      <View style={styles.box1} />
+      <View style={styles.box2} />
+      <View style={styles.box3} />
+      <View style={styles.box1} />
+      <View style={styles.box2} />
+      <View style={styles.box3} />
+      <View style={styles.box1} />
+      <View style={styles.box2} />
+      <View style={styles.box3} />
+    </ScrollView>
   )
 }
 
@@ -19,14 +32,32 @@ export default App
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-       // backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: 'black',
+        padding: 10,
+
+       
+    },
+    box1: {
+        flex:1,
+        width: 80,
+        height: 80,
+        backgroundColor: 'red',
+        borderRadius: 50
+
 
     },
-    text:{
-        fontSize: 30,
-        color: '#000',
-
+    box2:{
+        flex:1,
+        width: 80,
+        height: 80,
+        backgroundColor: 'green',
+        borderRadius: 50
+    },
+    box3:{
+        flex:1,
+        width: 80,
+        height: 80,
+        backgroundColor: 'blue',
+        borderRadius: 50
     }
 })
