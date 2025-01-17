@@ -1,53 +1,31 @@
-import { StyleSheet, Text, TextInput, View, Button } from 'react-native'
-import React, { useState } from 'react'
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import Home from './src/screens/Home';
+import Profile from './src/screens/Profile';
+import Search from './src/screens/Search';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+
+const Stack = createNativeStackNavigator();
+
+const StackNavigator = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen options={{ headerShown: false }} name="Home" component={Home} />
+      <Stack.Screen options={{ headerShown: false }} name="Profile" component={Profile} />
+      <Stack.Screen options={{ headerShown: false }} name="Search" component={Search} />
+    </Stack.Navigator>
+  );
+};
 
 const App = () => {
- const [text,setText]= useState('')
- const[submitted,setSubmitted]= useState('')
- const handleSubmit=()=> {
-  setSubmitted(text)
-  setText('')
- }
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>App</Text>
-      <TextInput
-      placeholder='Enter your name'
-      style={styles.input}
-      value={text}
-      onChangeText={setText}
-      multiline
-      numberOfLines={1}
-       />
-       <Button title='Submit' onPress={(handleSubmit)}/>
-       {submitted ? <Text>Result : {submitted}</Text> : <Text>Result :</Text>}
-    </View>
-  )
-}
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
+  );
+};
 
-export default App
+export default App;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 50,
-    gap: 20
-    
-  },
-  title:{
-    fontSize: 30,
-    color: '#000',
-    fontWeight: 'bold',
-
-  },
-  input:{
-    height: 50,
-    width: '100%',
-    borderColor: 'gray',
-    borderWidth: 1
-
-  }
-})
+const styles = StyleSheet.create({});
